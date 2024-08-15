@@ -70,3 +70,25 @@ conda install scikit-learn
 
 ### Creating Environments Using Anaconda
 [Creating Environments Using Anaconda](https://edx-video.net/MITx6.86x-V015300_DTH.mp4)
+
+
+## Testing your installation
+
+The `project0` folder contains two python files.
+
+- *main.py* contains the various functions you will to complete in the next sections of the project
+- *test.py* is a script which runs tests
+- *debug.py* contains the code for the final problem of this project
+
+> [!TIP]
+>Throughout the whole project, you can assume the NumPy python library is already imported as `np`.
+
+You are welcome to implement functions locally to fully check correctness and individual function implementations. 
+
+**How to Test:** In your terminal, navigate to the directory where your project files reside. 
+Execute the command `python test.py` to run all the available tests.
+
+For this project, the `test.py` file will test that all required packages are correctly installed.
+
+> [!TIP]
+>We recommend using a proper IDE for this course such as Visual Studio Code, Pycharm, etc.
