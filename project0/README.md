@@ -211,3 +211,9 @@ The function `get_sum_metrics` takes two arguments: a `prediction` and a lis
 
 > [!IMPORTANT]
 >You should fix this function first, and run `python debug.py` in your `project0` directory to make sure it behaves as expected on the simple test cases provided
+
+
+## IDE and Debugger Demo
+- [Introduction](https://edx-video.net/MITx6.86x-V015000_DTH.mp4)
+- [Pycharm IDE](https://edx-video.net/MITx6.86x-V015200_DTH.mp4)
+- [Debugging](https://edx-video.net/MITx6.86x-V015100_DTH.mp4)
