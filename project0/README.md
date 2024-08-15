@@ -191,3 +191,23 @@ They cover some of the most useful ML packages and constitute a good reference p
 We do not expect you to complete all sections in these notebooks immediately. For now, go through the first three sections in the first notebook on **Jupyter**, **Numpy**, and **Matplotlib**. Then after Unit 1 *Linear Classifiers*, come back to the section on **Scikit learn**, and while you work on Unit 3 *Neural Nets*, refer to the second notebook, which gives an introduction to **Pytorch**.
 
 We will not be using **Pandas** in this course, but it is a useful tool. Feel free to look at the section on Pandas at any time.
+
+
+## Debugging
+
+In machine learning, there a lot of reasons why a model would fail to perform well. The model could be poorly designed, the data could be too noisy, it could just be a poor initialization, or a poor choice of hyperparameters, etc. Therefore, it is vital to at least exclude engineering bugs using a debugger.
+
+Fortunately, Python comes with a fully functional interactive debugger called [pdb](https://docs.python.org/3/library/pdb.html).
+
+Before you tackle the last problem of this project, we recommend you take some time to learn how to use, for example with [this tutorial](https://realpython.com/python-debugging-pdb/).
+
+### Debugging exercise
+
+In this problem, you are given a buggy piece of code and are asked to debug it.
+
+The goal of this exercise is for you to set up a working debugging system for yourselves. (See the next page for an example.) Feel free to use other debuggers as you wish. But note that any extra print statement in submitted code will be graded as incorrect in the online code graders.
+
+The function `get_sum_metrics` takes two arguments: a `prediction` and a list of `metrics` to apply to the prediction (say, for instance, the accuracy or the precision). Note that each metric is a function, not a number. The function should compute each of the metrics for the prediction and sum them. It should also add to this sum three default metrics, in this case, adding 0, 1 or 2 to the prediction.
+
+> [!IMPORTANT]
+>You should fix this function first, and run `python debug.py` in your `project0` directory to make sure it behaves as expected on the simple test cases provided
