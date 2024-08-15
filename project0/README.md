@@ -92,3 +92,27 @@ For this project, the `test.py` file will test that all required packages are 
 
 > [!TIP]
 >We recommend using a proper IDE for this course such as Visual Studio Code, Pycharm, etc.
+
+
+## Introduction to Numpy
+
+Here, we introduce Numpy, a mathematics framework for Python.
+- [Fundamentals of Numpy](https://edx-video.net/MITx6.86x-V003100_DTH.mp4)
+
+### Randomization
+
+Write a function called `randomization` that takes as input a positive integer `n`, and returns `A`, a random $n \times 1$ Numpy array.
+
+### Operations
+
+Here, we learn how to find dimensions and apply matrix multiplication using Numpy arrays.
+- [Matrix Properties and Operations](https://edx-video.net/MITx6.86x-V004400_DTH.mp4)
+
+Write a function called `operations` that takes as input two positive integers `h` and `w`, makes two random matrices `A` and `B`, of size $h \times w$, and returns `A`,`B`, and `s`, the sum of `A` and `B`.
+
+### Norm
+
+Here, we learn how to find the maximum and minimum values in a Numpy array and obtain the norm of a vector.
+- [Max, Min, and Norm](https://edx-video.net/MITx6.86x-V004500_DTH.mp4)
+
+Write a function called `norm` that takes as input two Numpy column arrays `A` and `B`, adds them, and returns `s`, the L2 norm of their sum.
