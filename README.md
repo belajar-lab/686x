@@ -1,2 +1,3 @@
-# 686x
-Project from 6.86x course
+## Table of Contents
+
+- [Setup, Numpy Exercises, Tutorial on Common Packages](./project0/README.md)
