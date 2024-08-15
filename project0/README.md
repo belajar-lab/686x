@@ -172,3 +172,22 @@ Note that `x` and `y` are scalars.
 `scalar_function` can only handle scalar input, we could use the function `np.vectorize()` turn it into a vectorized function. Note that the input argument of `np.vectorize()` should be a scalar function, and the output of `np.vectorize()` is a new function that can handle vector input.
 
 Please write a vector function `vector function`, which will apply the operation $f(x,y)$ defined above element-wisely with input vectors with same dimension `x` and `y`.
+
+
+## Introduction to ML packages
+
+In the resources, we have provided you with two notebooks.
+
+### Introduction to ML packages (part 1) 
+- [Github](https://github.com/Varal7/ml-tutorial/blob/master/Part1.ipynb)
+- [Notebook viewer](https://nbviewer.jupyter.org/github/Varal7/ml-tutorial/blob/master/Part1.ipynb)
+
+### Introduction to ML packages (part 2)
+- [Github](https://github.com/Varal7/ml-tutorial/blob/master/Part2.ipynb)
+- [Notebook viewer](https://nbviewer.jupyter.org/github/Varal7/ml-tutorial/blob/master/Part2.ipynb)
+
+They cover some of the most useful ML packages and constitute a good reference point to refer to as you progress through the course.
+
+We do not expect you to complete all sections in these notebooks immediately. For now, go through the first three sections in the first notebook on **Jupyter**, **Numpy**, and **Matplotlib**. Then after Unit 1 *Linear Classifiers*, come back to the section on **Scikit learn**, and while you work on Unit 3 *Neural Nets*, refer to the second notebook, which gives an introduction to **Pytorch**.
+
+We will not be using **Pandas** in this course, but it is a useful tool. Feel free to look at the section on Pandas at any time.
