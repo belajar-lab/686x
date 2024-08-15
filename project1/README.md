@@ -151,3 +151,56 @@ We can then transform each of the reviews into a feature vector of length $d$ by
 A bag of words model can be easily expanded to include phrases of length $m$. A **unigram** model is the case for which $m=1$. In the example, the unigram dictionary would be $(\text {Mary}; \text {loves}; \text {apples}; \text {red})$. In the **bigram** case, $m=2$, the dictionary is $(\text {Mary loves}; \text {loves apples}; \text {Red apples})$, and representations for each sample are $(1; 1; 0), (0; 0; 1)$. In this section, you will only use the unigram word features. These functions are already implemented for you in the `bag_of_words`  function.
 
 In `utils.py`, we have supplied you with the `load data` function, which can be used to read the `.tsv` files and returns the labels and texts. We have also supplied you with the `bag_of_words` function in `project1.py`, which takes the raw data and returns dictionary of uni-gram words. The resulting dictionary is an input to `extract_bow_feature_vectors` which you will edit to compute a feature matrix of ones and zeros that can be used as the input for the classification algorithms. Using the feature matrix and your implementation of learning algorithms from before, you will be able to compute $\theta$ and $\theta_0$.
+
+
+## Classification and Accuracy
+
+Now we need a way to actually use our model to classify the data points. In this section, you will implement a way to classify the data points using your model parameters, and then measure the accuracy of your model.
+
+### Classification
+Implement a classification function that uses $\theta$ and $\theta_0$ to classify a set of data points. You are given the feature matrix, $\theta$, and $\theta_0$ as defined in previous sections. This function should return a numpy array of -1s and 1s. If a prediction is **greater than** zero, it should be considered a positive classification.
+
+>[!Tip]
+>As in previous exercises, when $x$ is a float, “$x=0$” should be checked with $|x| < \epsilon$.
+
+### Accuracy
+We have supplied you with an `accuracy` function:
+
+```python
+def accuracy(preds, targets):
+    """
+    Given length-N vectors containing predicted and target labels,
+    returns the percentage and number of correct predictions.
+    """
+    return (preds == targets).mean()
+```
+
+The `accuracy` function takes a numpy array of predicted labels and a numpy array of actual labels and returns the prediction accuracy. You should use this function along with the functions that you have implemented thus far in order to implement `classifier_accuracy`.
+
+The `classifier_accuracy` function should take 6 arguments:
+
+- a classifier function that, itself, takes arguments `(feature_matrix, labels, **kwargs)`
+- the training feature matrix
+- the validation feature matrix
+- the training labels
+- the validation labels
+- a `**kwargs` argument to be passed to the classifier function
+
+This function should train the given classifier using the training data and then compute compute the classification accuracy on both the train and validation data. The return values should be a tuple where the first value is the training accuracy and the second value is the validation accuracy.
+
+### Baseline Accuracy
+Now,
+
+- Edit the function `extract_bow_feature_vectors` under `if binarize:` in *project1.py* so that the feature matrix encodes the presence of a word as  if present, and  if not (i.e. one-hot encoding),
+- uncomment the relevant lines in *main.py*,
+- report the training and validation accuracies of each algorithm with T = 10 and  = 0.01 (the  value only (applies to Pegasos).
+
+>[!Hint]
+>If you get the following warnings when runnning *test.py*, do not worry:
+
+```
+WARN Bag of words : does not remove stopwords: ['he', 'is', 'on', 'the', 'there', 'to'] 
+lWARN Extract bow feature vectors : uses binary indicators as features
+```
+
+Please enter the **validation accuracy** of your Perceptron, Average Perceptron, and Pegasos algorithm.
