@@ -43,3 +43,14 @@ First, implement the basic hinge loss calculation on a single data-point. Instea
 
 ### The Complete Hinge Loss
 Now it's time to implement the complete hinge loss for a full set of data. Your input will be a full feature matrix this time, and you will have a vector of corresponding labels. The $k^{th}$ row of the feature matrix corresponds to the $k^{th}$ element of the labels vector. This function should return the appropriate loss of the classifier on the given dataset.
+
+
+## Perceptron Algorithm
+
+Now you will implement the Perceptron algorithm
+
+### Perceptron Single Step Update
+Now you will implement the single step update for the perceptron algorithm (implemented with $0-1$ loss). You will be given the feature vector as an array of numbers, the current $\theta$ and $\theta_0$ parameters, and the correct label of the feature vector. The function should return a tuple in which the first element is the correctly updated value of $\theta$ and the second element is the correctly updated value of $\theta_0$.
+
+>[!Tip]
+>Because of numerical instabilities, it is preferable to identify $0$ with a small range $[-\varepsilon , \varepsilon ]$. That is, when $x$ is a float, "$x=0$" should be checked with $|x| < \varepsilon$.
