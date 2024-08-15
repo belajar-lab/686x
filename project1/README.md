@@ -54,3 +54,15 @@ Now you will implement the single step update for the perceptron algorithm (impl
 
 >[!Tip]
 >Because of numerical instabilities, it is preferable to identify $0$ with a small range $[-\varepsilon , \varepsilon ]$. That is, when $x$ is a float, "$x=0$" should be checked with $|x| < \varepsilon$.
+
+### Full Perceptron Algorithm
+In this step you will implement the full perceptron algorithm. You will be given the same feature matrix and labels array as you were given in **The Complete Hinge Loss**. You will also be given $T$, the maximum number of times that you should iterate through the feature matrix before terminating the algorithm. Initialize $\theta$ and $\theta_0$ to zero. This function should return a tuple in which the first element is the final value of $\theta$ and the second element is the value of $\theta_0$.
+
+>[!Tip]
+>Call the function `perceptron_single_step_update` directly without coding it again.
+
+>[!Hint] 
+>Make sure you initialize `theta` to a 1D array of shape `(n,)` and **not** a 2D array of shape `(1, n)`.
+
+>[!Note]
+>Please call `get_order(feature_matrix.shape[0])`, and use the ordering to iterate the feature matrix in each iteration. In practice, people typically just randomly shuffle indices to do stochastic optimization.
