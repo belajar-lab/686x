@@ -194,8 +194,12 @@ def pegasos_single_step_update(
         real valued number with the value of theta_0 after the old updated has
         completed.
     """
-    # Your code here
-    raise NotImplementedError
+    margin_factor = label*(np.dot(feature_vector, theta) + theta_0)
+    is_violation = (1. if margin_factor <= 1 else 0.)
+    return (
+        theta   + eta * (is_violation*label*feature_vector - L*theta  ),
+        theta_0 + eta * (is_violation*label*1                         )
+    )
 
 
 
