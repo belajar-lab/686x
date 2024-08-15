@@ -38,8 +38,9 @@ def hinge_loss_single(feature_vector, label, theta, theta_0):
         the hinge loss, as a float, associated with the given data point and
         parameters.
     """
-    # Your code here
-    raise NotImplementedError
+    y = np.dot(feature_vector, theta) + theta_0
+    loss = max(0.0, 1 - y * label)
+    return loss
 
 
 
@@ -59,10 +60,9 @@ def hinge_loss_full(feature_matrix, labels, theta, theta_0):
         the hinge loss, as a float, associated with the given dataset and
         parameters.  This number should be the average hinge loss across all of
     """
-
-    # Your code here
-    raise NotImplementedError
-
+    y = np.dot(feature_matrix, theta) + theta_0
+    losses = np.maximum(0.0, 1 - y * labels)
+    return np.mean(losses)
 
 
 
