@@ -51,7 +51,7 @@ conda create -n 6.86x python=3.8
 ```
 
 > [!NOTE]
-> As mentioned above, you may use other versions of python, as long as functions available only in 3.9+ are not used.
+>As mentioned above, you may use other versions of python, as long as functions available only in 3.9+ are not used.
 
 To activate this environment, use
 ```sh
@@ -69,4 +69,4 @@ conda install scikit-learn
 ```
 
 ### Creating Environments Using Anaconda
-![Creating Environments Using Anaconda](https://edx-video.net/MITx6.86x-V015300_DTH.mp4)
+[Creating Environments Using Anaconda](https://edx-video.net/MITx6.86x-V015300_DTH.mp4)
