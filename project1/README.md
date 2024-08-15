@@ -85,10 +85,33 @@ You will now implement the average perceptron algorithm. This function should be
 
 ## Pegasos Algorithm
 
-Now you will implement the Perceptron algorithm
+Now you will implement the Pegasos algorithm. For more information, refer to the original paper at [original paper](https://www.notion.so/Automatic-Review-Analyzer-fa12e75898404964aeca1ad1f41db923?pvs=21).
 
-### Perceptron Single Step Update
-Now you will implement the single step update for the perceptron algorithm (implemented with $0-1$ loss). You will be given the feature vector as an array of numbers, the current $\theta$ and $\theta_0$ parameters, and the correct label of the feature vector. The function should return a tuple in which the first element is the correctly updated value of $\theta$ and the second element is the correctly updated value of $\theta_0$.
+The following pseudo-code describes the Pegasos update rule.
 
->[!Tip]
->Because of numerical instabilities, it is preferable to identify $0$ with a small range $[-\varepsilon , \varepsilon ]$. That is, when $x$ is a float, “$x=0$” should be checked with $|x| < \varepsilon$.
+$$
+\begin{align*}
+&\textmd{Pegasos update rule}\ \left(x^{(i)}, y^{(i)}, \lambda , \eta , \theta \right):\\
+
+&\kern1.5em \textbf{if}\ y^{(i)}(\theta \cdot x^{(i)}) \leq 1 \ \textbf{then}\\
+
+&\kern3em \textbf{update}\ \theta = (1 - \eta \lambda ) \theta + \eta y^{(i)}x^{(i)}\\
+
+&\kern1.5em\textbf{else}:\\
+
+&\kern3em \textbf{update}\ \theta = (1 - \eta \lambda ) \theta
+\end{align*}
+$$
+
+The $\eta$ parameter is a decaying factor that will decrease over time. The $\lambda$ parameter is a regularizing parameter.
+
+In this problem, you will need to adapt this update rule to add a bias term ($\theta_0$) to the hypothesis, but take care not to penalize the magnitude of $\theta_0$.
+
+### Pegasos Single Step Update
+Next you will implement the single step update for the Pegasos algorithm. This function is very similar to the function that you implemented in **Perceptron Single Step Update**, except that it should utilize the Pegasos parameter update rules instead of those for perceptron. The function will also be passed a $\lambda$ and $\eta$ value to use for updates.
+
+### Full Pegasos Algorithm
+Finally you will implement the full Pegasos algorithm. You will be given the same feature matrix and labels array as you were given in **Full Perceptron Algorithm**. You will also be given $T$, the maximum number of times that you should iterate through the feature matrix before terminating the algorithm. Initialize $\theta$ and $\theta _0$ to zero. For each update, set $\displaystyle \eta = \frac{1}{\sqrt{t}}$ where $t$ is a counter for the number of updates performed so far (between $1$ and $nT$ inclusive). This function should return a tuple in which the first element is the final value of $\theta$ and the second element is the value of $\theta _0$.
+
+>[!Note]
+>Please call `get_order(feature_matrix.shape[0])`, and use the ordering to iterate the feature matrix in each iteration. In practice, people typically just randomly shuffle indices to do stochastic optimization.
