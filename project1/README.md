@@ -66,3 +66,18 @@ In this step you will implement the full perceptron algorithm. You will be given
 
 >[!Note]
 >Please call `get_order(feature_matrix.shape[0])`, and use the ordering to iterate the feature matrix in each iteration. In practice, people typically just randomly shuffle indices to do stochastic optimization.
+
+### Average Perceptron Algorithm
+The average perceptron will add a modification to the original perceptron algorithm: since the basic algorithm continues updating as the algorithm runs, nudging parameters in possibly conflicting directions, it is better to take an average of those parameters as the final answer. Every update of the algorithm is the same as before. The returned parameters $\theta$, however, are an average of the $\theta$s across the $nT$ steps:
+
+$$
+\theta _{final} = \frac{1}{nT}(\theta ^{(1)} + \theta ^{(2)} + ... + \theta ^{(nT)})
+$$
+
+You will now implement the average perceptron algorithm. This function should be constructed similarly to the Full Perceptron Algorithm above, except that it should return the average values of $\theta$ and $\theta_0$.
+
+>[!Tip]
+>Tracking a moving average through loops is difficult, but tracking a sum through loops is simple.
+
+>[!Note]
+>Please call `get_order(feature_matrix.shape[0])`, and use the ordering to iterate the feature matrix in each iteration. In practice, people typically just randomly shuffle indices to do stochastic optimization.
