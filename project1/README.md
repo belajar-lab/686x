@@ -203,4 +203,74 @@ WARN Bag of words : does not remove stopwords: ['he', 'is', 'on', 'the', 'there'
 lWARN Extract bow feature vectors : uses binary indicators as features
 ```
 
-Please enter the **validation accuracy** of your Perceptron, Average Perceptron, and Pegasos algorithm.
+
+## Parameter Tuning
+
+You finally have your algorithms up and running, and a way to measure performance! But, it's still unclear what values the hyperparameters like $T$ and $\lambda$ should have. In this section, you'll tune these hyperparameters to maximize the performance of each model.
+
+---
+
+One way to tune your hyperparameters for any given Machine Learning algorithm is to perform a grid search over all the possible combinations of values. If your hyperparameters can be any real number, you will need to limit the search to some finite set of possible values for each hyperparameter. For efficiency reasons, often you might want to tune one individual parameter, keeping all others constant, and then move onto the next one; Compared to a full grid search there are many fewer possible combinations to check, and this is what you'll be doing for the questions below.
+
+In *main.py* uncomment Problem 8 to run the staff-provided tuning algorithm from *utils.py*. For the purposes of this assignment, please try the following values for $T$: [1, 5, 10, 15, 25, 50] and the following values for $\lambda$ [0.001, 0.01, 0.1, 1, 10]. For pegasos algorithm, first fix $\lambda=0.01$ to tune $T$, and then use the best $T$ to tune $\lambda$.
+
+### Performance After Tuning
+After tuning, please enter the best $T$ value for each of the perceptron and average percepton algorithms, and both the best  $T$ and $\lambda$ for the Pegasos algorithm.
+
+>[!Note]
+>Just enter the values printed in your *main.py*. Note that for the Pegasos algorithm, the result does not reflect the best combination of  $T$ and $\lambda$.
+
+### Accuracy on the test set
+After you have chosen your best method (perceptron, average perceptron or Pegasos) and parameters, use this classifier to compute testing accuracy on the test set.
+
+We have supplied the feature matrix and labels in `main.py` as `test_bow_features` and `test_labels`.
+
+>[!Note]
+>In practice the validation set is used for tuning hyperparameters while a heldout test set is the final benchmark used to compare disparate models that have already been tuned. You may notice that your results using a validation set don't always align with those of the test set, and this is to be expected.
+    
+### The most explanatory unigrams
+According to the largest weights (i.e. individual $i$ values in your vector), you can find out which unigrams were the most impactful ones in predicting positive labels. Uncomment the relevant part in *main.py* to call `utils.most_explanatory_word`.
+
+Report the top ten most explanatory word features for positive classification below:
+
+Also experiment with finding unigrams that were the most impactful in predicting negative labels.
+
+
+## Feature Engineering
+
+Frequently, the way the data is represented can have a significant impact on the performance of a machine learning method. Try to improve the performance of your best classifier by using different features. In this problem, we will practice two simple variants of the bag of words (BoW) representation.
+
+### Remove Stop Words
+Try to implement stop words removal in your feature engineering code. Specifically, load the file *stopwords.txt*, remove the words in the file from your dictionary by editing the `bag_of_words` function, and use features constructed from the new dictionary to train your model and make predictions.
+
+Compare your result in the **testing** data on Pegasos algorithm using $T=25$ and $L=0.01$ when you remove the words in *stopwords.txt* from your dictionary.
+
+>[!Hint]
+>   Instead of replacing the feature matrix with zero columns on stop words, you can modify the `bag_of_words` function to prevent adding stopwords to the dictionary
+
+- Accuracy on the test set using the original dictionary: 0.8020
+- Accuracy on the test set using the dictionary with stop words removed: 0.8080
+    
+
+### Change Binary Features to Counts Features
+Again, use the same learning algorithm and the same feature as the last problem. However, when you compute the feature vector of a word, use its count in each document rather than a binary indicator.
+
+>[!Hint]
+>You are free to modify the `extract_bow_feature_vectors` function to compute counts features.
+
+> Accuracy on the test set using the dictionary with stop words removed and counts features:
+
+Try to compare your result to the last problem, and see the discussion in solution after answering the question.
+
+### Explore more features
+Some additional features that you might want to explore are:
+
+- Length of the text
+- Occurrence of all-cap words (e.g. “AMAZING", “DON'T BUY THIS")
+- Word embeddings
+
+Besides adding new features, you can also change the original unigram feature set. For example,
+
+- Threshold the number of times a word should appear in the dataset before adding them to the dictionary. For example, words that occur less than three times across the train dataset could be considered irrelevant and thus can be removed. This lets you reduce the number of columns that are prone to overfitting.
+
+There are also many other things you could change when training your model. Try anything that can help you understand the sentiment of a review. It's worth looking through the dataset and coming up with some features that may help your model. Remember that not all features will actually help so you should experiment with some simpler ones before trying anything too complicated.
