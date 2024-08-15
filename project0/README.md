@@ -116,3 +116,38 @@ Here, we learn how to find the maximum and minimum values in a Numpy array and o
 - [Max, Min, and Norm](https://edx-video.net/MITx6.86x-V004500_DTH.mp4)
 
 Write a function called `norm` that takes as input two Numpy column arrays `A` and `B`, adds them, and returns `s`, the L2 norm of their sum.
+
+
+## Exercise
+
+As introduced in the previous section, a neural network is a powerful tool often utilized in machine learning. Because neural networks are, fundamentally, very mathematical, we'll use them to motivate Numpy!
+
+We review the simplest neural network here:
+
+<img src="https://courses.edx.org/asset-v1:MITx+6.86x+2T2024+type@asset+block/images_basic_nn.png" width="256">
+
+The output of the neural network, $z_1$, is dependent on the inputs $x_1$  and $x_2$ . The importance of each of the inputs is given by values called *weights*. There is one weight from each input to each output. We show this here:
+
+<img src="https://courses.edx.org/asset-v1:MITx+6.86x+2T2024+type@asset+block/images_basic_nn_weights.png" width="256">
+
+The inputs are given by $x$, and the outputs are given by $z_1$. Here, $w_{11}$ is the weight of input 1 on output 1 (our only output in this case), and $w_{21}$ is the weight of input 2 on output 1. In general, $w_{ij}$ represents the weight of input $i$ on output $j$.
+
+The output, $z_1$, is given by $z_1 = f(w_{11}x_1 + w_{21}x_2)$:
+
+<img src="https://courses.edx.org/asset-v1:MITx+6.86x+2T2024+type@asset+block/images_basic_nn_product1.png" width="512">
+
+where $f$ is a specified nonlinear function, and it is usually the hyperbolic tangent function, $\tanh$.
+
+If we express our inputs and weights as matrices, as shown here,
+
+$$
+\vec{x} = \begin{bmatrix}x_1 \\ x_2\end{bmatrix} \quad w= \begin{bmatrix}w_{11} \\ w_{21}\end{bmatrix} 
+$$
+
+then we can develop an elegant mathematical expression: $z_1 = \tanh (w^{T}\vec{x})$.
+
+### Neural Network
+
+Here, we will write a function `neural_network`, which will apply a neural network operation with 2 inputs and 1 output and a given weight matrix.
+
+Your function should take two arguments: `inputs` and `weights`, two NumPy arrays of shape $(1,2)$ and should return a NumPy array of shape $(1,1)$, the output of the neural network. Do not forget the $\tanh$ activation.
