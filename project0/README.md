@@ -151,3 +151,24 @@ then we can develop an elegant mathematical expression: $z_1 = \tanh (w^{T}\vec{
 Here, we will write a function `neural_network`, which will apply a neural network operation with 2 inputs and 1 output and a given weight matrix.
 
 Your function should take two arguments: `inputs` and `weights`, two NumPy arrays of shape $(1,2)$ and should return a NumPy array of shape $(1,1)$, the output of the neural network. Do not forget the $\tanh$ activation.
+
+
+## Vectorize function
+
+In this exercise, you will learn how to vectorize a function that can only deal with scalar inputs without using a `for` loop.
+
+### Scalar function
+
+Let's start with writing a scalar function `scalar_function`, which will apply the following operation with input `x` and `y`.
+
+$$
+f(x,y)=\begin{cases}  x\cdot y, \text { if } x\le y\\ x/y, \text { else.} \end{cases}
+$$
+
+Note that `x` and `y` are scalars.
+
+### Vector function
+
+`scalar_function` can only handle scalar input, we could use the function `np.vectorize()` turn it into a vectorized function. Note that the input argument of `np.vectorize()` should be a scalar function, and the output of `np.vectorize()` is a new function that can handle vector input.
+
+Please write a vector function `vector function`, which will apply the operation $f(x,y)$ defined above element-wisely with input vectors with same dimension `x` and `y`.
